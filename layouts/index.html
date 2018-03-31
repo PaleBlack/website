@@ -1,0 +1,305 @@
+<!DOCTYPE HTML>
+<!--
+	Helios by HTML5 UP
+	html5up.net | @n33co
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+{{ partial "head.html" . }}
+<body class="homepage">
+<div id="page-wrapper">
+
+    <!-- Header -->
+    <div id="header">
+
+        <!--<div id="modal_window" class="modal">-->
+            <!--<div class="modalPlayerBox">-->
+                <!--<div class="modalPlayerBoxContent">-->
+                    <!--<a id="close_modal" href="#" title="Close" class="close">X</a>-->
+                    <!--<h2>Pale Black geht ins Studio</h2>-->
+                    <!--<iframe src="https://player.vimeo.com/video/189050591" width="640" height="360" frameborder="0"-->
+                            <!--webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
+                        <!--<p>Wir nehmen unser erstes Album auf. Damit die Finanzierung gesichert ist,-->
+                            <!--tauschen wir alles, was wir entbehren können, gegen deine Hilfe ein!</p>-->
+                        <!--<a href="https://wemakeit.com/projects/pale-black-erstlingswerk">Ich will Pale Black unterstützen!</a>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!-- Inner -->
+        <div class="inner">
+            <header>
+                <a href="#about" class="button circled scrolly"></a>
+                <hr/>
+                <p>Abwechslungsreicher Death Metal aus der Schweiz</p>
+            </header>
+            <footer>
+            </footer>
+        </div>
+
+        <!-- Nav -->
+        <nav id="nav">
+            <ul>
+                <li><a class="scrolly" href="#about">Über uns</a></li>
+                <li><a class="scrolly" href="#activities">Neuigkeiten</a></li>
+                <li><a class="scrolly" href="#music">Musik</a></li>
+                <li><a class="scrolly" href="#concerts">Auftritte</a></li>
+                <li><a class="scrolly" href="#biography">Biografie</a></li>
+                <li><a class="scrolly" href="#members">Mitglieder</a></li>
+                <li><a href="index_en.html">English</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Banner -->
+    <section id="about" class="banner">
+        <header class="major">
+
+            <p>Die Death-Metal Band Pale Black überzeugt mit abwechslungsreichem Songwriting. Schnelle Blast-Beats
+                reihen sich an stampfende Groove Parts. Überraschende Takt und Rythmuswechsel bringen Headbanger aus dem
+                Tritt,
+                halten die Songs aber für treue Fans spannend.</p>
+        </header>
+    </section>
+
+    <!-- Activities -->
+    <section id="activities" class="carousel clientside">
+        <div align="center"><img src="css/images/heart_beat_white.gif" class="spinner"/></div>
+    </section>
+
+    <!-- Music -->
+    <div class="wrapper style1">
+        <article id="music" class="container special">
+            <header>
+                <h2>Musik</h2>
+            </header>
+            <div class="ytPlayerBox">
+                <iframe src="https://www.youtube.com/embed/Hd4WZMQkNzo?rel=0" scrolling="no" frameborder="no"
+                        allowfullscreen></iframe>
+            </div>
+            <div class="ytPlayerBox">
+                <iframe src="https://www.youtube.com/embed/hbYS3NmdI6Q?rel=0" scrolling="no" frameborder="no"
+                        allowfullscreen></iframe>
+            </div>
+            <div class="scPlayerBox">
+                <iframe scrolling="no" frameborder="no"
+                        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/188648420&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=false"></iframe>
+            </div>
+        </article>
+    </div>
+
+    <!-- Concerts -->
+    <section id="concerts" class="carousel serverside">
+        <div class="reel">
+            {% assign concerts = site.concerts | sort: 'date' | reverse %}
+            {% for concert in concerts %}
+            <article>
+                <div class="image featured">
+                    {% if concert.link %}<a href="{concert.link}">{% endif %}
+                    <img src="images/concerts/{concert.image}" alt="{concert.title}"/>
+                    {% if concert.link %}</a>{% endif %}
+                </div>
+                <div class="inner">
+                    <h3>{concert.title}</h3>
+                    <p>% if concert.nodate %{}% else %{% include functions/german-date.html date=concert.date %}%
+                        endif %</p>
+                    <p>{concert.text}</p>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+    </section>
+
+
+    <!--Bio-->
+    <div class="wrapper style1">
+        <article id="biography" class="container special">
+            <header>
+                <a href="#" class="image featured"><img src="images/biography.jpg" alt=""/></a>
+                <h2>Biografie</h2>
+                <p>
+                    Alles begann mit zwei Metal begeisterten Freunden im beschaulichen Emmental
+                </p>
+            </header>
+            <p>
+                Anno 2009 beschlossen die beiden Freunde Sebastian und Thomas eine eigene Metalband zu gründen. Fleissig
+                arbeiteten sie an ihrer
+                Spieltechnik und rekrutierten weitere Bandmitglieder. Mit dem minimalsten Inserat aller Zeiten "Death
+                Metal Band sucht Schlagzeuger" weckten Sie im Sommer 2011 das
+                Interesse von Dani. Schnell war klar, dass man nicht nur den Humor sondern auch die musikalische Vision
+                teilt.
+                Die drei warfen das bestehende Material nochmals über Bord und komponierten neue Songs. Nachdem
+                sie eine erste Basis hatten machten sie sich auf die
+                Suche nach Sänger und Bassist. In dieser Zeit lernten sie viele Musiker kennen, leider aber
+                bis im Winter 2013 nicht die passende Ergänzung.
+                Das alles sollte sich mit Miriam schlagartig ändern. Mit einer Solo Performance von Janis Joplin's
+                "Mercedes Benz" überzeugte Sie das Trio auf anhieb.
+                Innert Kürze erlernte Sie das growlen und präsentierte mit Bruno auch noch den perfekten Bassisten.
+                Fleissig wurde im Emmental geprobt und etwa ein halbes Jahr später stand Pale Black das erste Mal auf
+                der Bühne.
+                Seit da wurden mit viel Freude weitere Konzerte gespielt und neue Songs geschrieben.
+                Eine EP sowie ein Musikvideo sollen bald folgen, also dranbleiben!
+            </p>
+        </article>
+
+    </div>
+
+    <!-- Features -->
+    <div class="wrapper style1">
+
+        <section id="members" class="container special">
+            <header>
+                <h2>Mitglieder</h2>
+                <p>Diese fünf Frohnaturen nehmen ausser ihrer eigenen Musik kaum etwas ernst</p>
+            </header>
+            <div class="row">
+                <article class="4u 12u(mobile) special">
+                    <a href="#" class="image featured"><img src="images/members/miriam.jpg" alt="Miriam"/></a>
+                    <header>
+                        <h3>Gesang: Miriam</h3>
+                    </header>
+                    <p>
+                        Die einzige Frau in der Band kann sich dank ihrer kräftigen Stimme gut gegen die vier Jungs
+                        durchsetzen. Sie schreibt die gesellschaftskritischen Texte, welche Pale Black Songs den gewünschten Tiefgang geben.
+                    </p>
+                </article>
+                <article class="4u 12u(mobile) special">
+                    <a href="#" class="image featured"><img src="images/members/thomas.jpg" alt="Thomas"/></a>
+                    <header>
+                        <h3>Gitarre: Thomas</h3>
+                    </header>
+                    <p>
+                        Gemeinsam mit Julian zeichnet er sich für die Gitarrenwand verantwortlich, welche einem bei
+                        Pale Black entgegen bläst.
+                        Mit seiner riesigen Leidenschaft für Metal treibt er die ganze Band an.
+                    </p>
+                </article>
+                <article class="4u 12u(mobile) special">
+                    <a href="#" class="image featured"><img src="images/members/bruno.jpg" alt="Bruno"/></a>
+                    <header>
+                        <h3>Bass: Bruno</h3>
+                    </header>
+                    <p>
+                        Drückt man ihm einen Bass in die Finger, so wird aus dem ruhigen Bruno ein Tier. Mit seiner
+                        Tempostabilität hilft er Dani im Takt zu bleiben
+                        und verzaubert das Publikum dazwischen mit Melodien am Fretless-Bass.
+                    </p>
+                </article>
+                <article class="4u 12u(mobile) special">
+                    <a href="#" class="image featured"><img src="images/members/julian.jpg" alt="Julian"/></a>
+                    <header>
+                        <h3>Gitarre: Julian</h3>
+                    </header>
+                    <p>
+                        Immer auf der Suche nach dem perfekten Sound testet er die verschiensten Amp und Gitarren Kombinationen.
+                        Sein Kopf scheint mit Melodien und speziellen Akkorden überfüllt zu sein, hat er eine Gitarre in den Fingern
+                        ist er kaum zu stoppen.
+                    </p>
+                </article>
+                <article class="4u 12u(mobile) special">
+                    <a href="#" class="image featured"><img src="images/members/dani.jpg" alt="Dani"/></a>
+                    <header>
+                        <h3>Schlagzeug: Dani</h3>
+                    </header>
+                    <p>
+                        Gemeinsam mit Bruno bildet er die Rhythm Section. Mit seinen Visionen von komischen Taktfolgen und Polyrhythmen sorgt er immer wieder für
+                        Kopfzerbrechen.
+                    </p>
+                </article>
+                <header>
+                    <h2>Ehemalige Mitglieder</h2>
+                </header>
+                <article class="4u 12u(mobile) special">
+                    <a href="#" class="image featured"><img src="images/members/sebastian.jpg" alt="Sebastian"/></a>
+                    <header>
+                        <h3>Gitarre bis 2017: Sebastian </h3>
+                    </header>
+                    <p>
+                        Gemeinsam mit Thomas gründete er Pale Black und prägte die Band und Ihren Sound massgebend. Nachdem er seinen Part für das
+                        Erstlingswerk aufgenommen hatte, verabschiedete er sich von der Schweiz um auf dem Landweg nach Indien zu reisen.
+                    </p>
+                </article>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer">
+        <div class="container">
+            <div class="row">
+                {% for gallery in site.data.galleries %}
+                <section class="4u 12u(mobile)">
+                    <header>
+                        <a href="{gallery.imagefolder}/gallery.html">
+                            <h2 class="icon fa-camera circled"><span class="label">Photos</span></h2>
+                        </a>
+                        <a href="{gallery.imagefolder}/gallery.html">
+                            <h3>{gallery.description}</h3>
+                        </a>
+                    </header>
+                    <div class="row 25%">
+                        {% for image in gallery.images limit: 6 %}
+                        {% capture modulo %}{forloop.index | modulo: 2 }{% endcapture %}
+                        {% if modulo == '0' %}
+                        <div class="6u$">
+                            {% else %}
+                            <div class="6u">
+                                {% endif %}
+                                <a href="{gallery.imagefolder}/gallery.html" class="image fit">
+                                    <img src="{gallery.imagefolder}/{image.name | replace:'.JPG','_thumb.JPG'}"
+                                         alt="{image.name}"/>
+                                </a>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </section>
+                {% endfor %}
+            </div>
+            <hr/>
+            <div class="row">
+                <div class="12u">
+
+                    <!-- Contact -->
+                    <section class="contact">
+                        <header>
+                            <h3>Kontakt</h3>
+                        </header>
+                        <p>Wir freuen uns über euren Support auf <a
+                                href="{site.facebook-url}">Facebook</a> und <a
+                                href="{site.soundcloud-url}">Soundcloud</a>. Falls ihr uns für
+                            einen
+                            Aufritt buchen möchtet, meldet euch am Besten via <a href="{site.mail-url}">Email</a>
+                            oder <a href="{site.facebook-url}">Facebook</a>.</p>
+                        <ul class="icons">
+                            <li><a href="{site.mail-url}" class="icon fa-envelope"><span class="label">Mail</span></a>
+                            </li>
+                            <li><a href="{site.facebook-url}"
+                                   class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                            <li><a href="{site.twitter-url}"
+                                   class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+                            <li><a href="{site.soundcloud-url}" class="icon fa-soundcloud"><span
+                                    class="label">Soundcloud</span></a></li>
+                            <li><a href="{site.github-url}" class="icon fa-github"><span
+                                    class="label">Github</span></a></li>
+                        </ul>
+                    </section>
+
+                    <!-- Copyright -->
+                    <div class="copyright">
+                        <ul class="menu">
+                            <li>&copy; Pale Black. All rights reserved.</li>
+                            <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<a style="visible: none" class="twitter-timeline" href="https://twitter.com/paleblack_band">Tweets by paleblack_band</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+{{ partial "scripts.html" . }}
+</body>
+
+</html>

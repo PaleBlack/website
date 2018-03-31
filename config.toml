@@ -1,3 +1,16 @@
 baseURL = "https://www.paleblack.ch"
-languageCode = "de-ch"
+defaultContentLanguage = "de"
+
+[languages]
+[languages.en]
+languageName = "English"
+languageCode = "en-gb"
+weight = 2
 title = "Pale Black"
+
+[languages.de]
+languageName = "Deutsch"
+languageCode = "de-ch"
+weight = 1
+title = "Pale Bläck"
+
