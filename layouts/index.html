@@ -152,72 +152,45 @@
                 <p>Diese fünf Frohnaturen nehmen ausser ihrer eigenen Musik kaum etwas ernst</p>
             </header>
             <div class="row">
-                <article class="4u 12u(mobile) special">
-                    <a href="#" class="image featured"><img src="images/members/miriam.jpg" alt="Miriam"/></a>
-                    <header>
-                        <h3>Gesang: Miriam</h3>
-                    </header>
-                    <p>
-                        Die einzige Frau in der Band kann sich dank ihrer kräftigen Stimme gut gegen die vier Jungs
-                        durchsetzen. Sie schreibt die gesellschaftskritischen Texte, welche Pale Black Songs den gewünschten Tiefgang geben.
-                    </p>
-                </article>
-                <article class="4u 12u(mobile) special">
-                    <a href="#" class="image featured"><img src="images/members/thomas.jpg" alt="Thomas"/></a>
-                    <header>
-                        <h3>Gitarre: Thomas</h3>
-                    </header>
-                    <p>
-                        Gemeinsam mit Julian zeichnet er sich für die Gitarrenwand verantwortlich, welche einem bei
-                        Pale Black entgegen bläst.
-                        Mit seiner riesigen Leidenschaft für Metal treibt er die ganze Band an.
-                    </p>
-                </article>
-                <article class="4u 12u(mobile) special">
-                    <a href="#" class="image featured"><img src="images/members/bruno.jpg" alt="Bruno"/></a>
-                    <header>
-                        <h3>Bass: Bruno</h3>
-                    </header>
-                    <p>
-                        Drückt man ihm einen Bass in die Finger, so wird aus dem ruhigen Bruno ein Tier. Mit seiner
-                        Tempostabilität hilft er Dani im Takt zu bleiben
-                        und verzaubert das Publikum dazwischen mit Melodien am Fretless-Bass.
-                    </p>
-                </article>
-                <article class="4u 12u(mobile) special">
-                    <a href="#" class="image featured"><img src="images/members/julian.jpg" alt="Julian"/></a>
-                    <header>
-                        <h3>Gitarre: Julian</h3>
-                    </header>
-                    <p>
-                        Immer auf der Suche nach dem perfekten Sound testet er die verschiensten Amp und Gitarren Kombinationen.
-                        Sein Kopf scheint mit Melodien und speziellen Akkorden überfüllt zu sein, hat er eine Gitarre in den Fingern
-                        ist er kaum zu stoppen.
-                    </p>
-                </article>
-                <article class="4u 12u(mobile) special">
-                    <a href="#" class="image featured"><img src="images/members/dani.jpg" alt="Dani"/></a>
-                    <header>
-                        <h3>Schlagzeug: Dani</h3>
-                    </header>
-                    <p>
-                        Gemeinsam mit Bruno bildet er die Rhythm Section. Mit seinen Visionen von komischen Taktfolgen und Polyrhythmen sorgt er immer wieder für
-                        Kopfzerbrechen.
-                    </p>
-                </article>
+	      <!-- Fetch members from contentful -->
+	      {{ $urlPre := "https://cdn.contentful.com/spaces/4i5fieyphrbz" }}
+	      {{ $url := "/entries?content_type=musician&" }}
+	      {{ $token := string (delimit (slice "access_token" .Site.Params.access_token ) "=" )}}
+	      {{ $dataJ := getJSON $urlPre $url $token }}
+
+	      {{ $members := where $dataJ.items "fields.memberUntil" nil }}
+	      {{ $ex_members := where $dataJ.items "fields.memberUntil" "!=" nil }}
+
+	      {{ range $members }}
+	      <article class="4u 12u(mobile) special">
+                <!--TODO: Fetch portrait-->
+		 <a href="#" class="image featured"><img src="images/members/miriam.jpg" alt="{{ .fields.firstname }}"/></a>
                 <header>
-                    <h2>Ehemalige Mitglieder</h2>
+                  <h3>{{ .fields.instrument }}: {{ .fields.firstname }} {{.fields.lastname}}</h3>
                 </header>
-                <article class="4u 12u(mobile) special">
-                    <a href="#" class="image featured"><img src="images/members/sebastian.jpg" alt="Sebastian"/></a>
-                    <header>
-                        <h3>Gitarre bis 2017: Sebastian </h3>
-                    </header>
-                    <p>
-                        Gemeinsam mit Thomas gründete er Pale Black und prägte die Band und Ihren Sound massgebend. Nachdem er seinen Part für das
-                        Erstlingswerk aufgenommen hatte, verabschiedete er sich von der Schweiz um auf dem Landweg nach Indien zu reisen.
-                    </p>
-                </article>
+                <p>
+                  {{ .fields.description }}
+                </p>
+              </article>
+	      {{ end }}
+
+	      <header>
+                <h2>Ehemalige Mitglieder</h2>
+              </header>
+
+	      {{ range $ex_members }}
+	      <article class="4u 12u(mobile) special">
+		<!--TODO: Fetch portrait-->
+		<a href="#" class="image featured"><img src="images/members/miriam.jpg" alt="{{ .fields.firstname }}"/></a>
+                <header>
+                  <h3>{{ .fields.instrument }} bis {{ dateFormat "2006" .fields.memberUntil }}: {{ .fields.firstname }} {{.fields.lastname}}</h3>
+                </header>
+                <p>
+                  {{ .fields.description }}
+                </p>
+              </article>
+	      {{ end }}
+
             </div>
         </section>
     </div>
